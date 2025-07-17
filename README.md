@@ -1,30 +1,79 @@
-# Twitter_Streaming_analysis
-# 🐦 Twitter Streaming Analysis
+# Twitter_Streaming_analysisL
 
-A real-time Twitter data pipeline built to collect, process, analyze, and visualize live tweets using Twitter's Streaming API and modern data engineering tools.
+A real-time big data analytics pipeline for ingesting, processing, and analyzing Twitter data using **Apache Kafka**, **Apache Spark (Structured Streaming & Batch)**, and **MySQL**.
 
-## 🚀 Key Features
+---
 
-- **Live Tweet Streaming**: Captures real-time tweets using Twitter API (v2).
-- **Keyword/Hashtag Tracking**: Filter tweets based on keywords, hashtags, or user mentions.
-- **Preprocessing Pipeline**: Cleans and processes tweet text (removes stopwords, handles emojis, hashtags, links).
-- **Sentiment Analysis**: Classifies tweets into Positive, Negative, or Neutral using NLP models.
-- **Word Cloud & Hashtag Analysis**: Generates word clouds and analyzes trending hashtags in real time.
-- **Data Storage**: Tweets stored in CSV/JSON formats or streamed to a database for batch processing.
-- **Visual Analytics**: Graphical representation of sentiments, tweet volume, user activity using Python visual libraries.
-- **Modular Codebase**: Easy to modify or extend with additional analytics or storage tools (e.g., Kafka, MongoDB, Elasticsearch).
+## 🚀 Features
 
-## 🧰 Technologies Used
+- **Kafka Producer** that simulates Twitter's API and streams tweet JSON data to Kafka topics.
+- **Spark Streaming Jobs** to consume Kafka data and store analytics in MySQL.
+- **Batch Processing Module** to load and analyze historical tweet data.
+- **Performance Monitoring**: Measures throughput, processing time, and storage usage.
+- **Visual Analytics** using Matplotlib and Seaborn.
 
-| Category            | Tools / Libraries                      |
-|---------------------|----------------------------------------|
-| 🐍 Programming       | Python 3.x                              |
-| 🔄 API & Streaming   | Tweepy (Twitter API wrapper)           |
-| 🧠 NLP & ML          | TextBlob / VaderSentiment              |
-| 📊 Visualization     | Matplotlib, Seaborn, WordCloud         |
-| 🧼 Preprocessing      | NLTK, regex, pandas                    |
-| 💾 Storage           | CSV, JSON (optional DB integration)    |
-| 🛠️ Others            | dotenv for credential management        |
+---
 
-## 📁 Project Structure
 
+## 🛠️ Technologies Used
+
+- **Kafka** – Event streaming backbone
+- **Apache Spark (PySpark)** – Real-time and batch data processing
+- **MySQL** – Data warehouse for analytics
+- **Matplotlib, Seaborn** – Visualizations
+- **psutil** – System resource tracking
+
+---
+
+## 🔄 Kafka Topics
+
+| Topic            | Description                      |
+|------------------|----------------------------------|
+| `raw_tweets`     | Raw tweet data with user info    |
+| `processed_tweets` | Flattened tweet metrics         |
+| `analytics`      | Aggregated user/location/lang data|
+
+---
+
+## 📈 Output Metrics
+
+- **Processing Mode**: Batch vs Streaming
+- **Tweets processed**
+- **Start & End Timestamps**
+- **Processing Time & Throughput**
+- **Table-wise storage usage**
+- **Average & Max Engagement**
+- **Unique Users and Languages**
+
+---
+
+## 🧪 Sample Execution
+
+```bash
+# Start Zookeeper and Kafka brokers
+./bin/zookeeper-server-start.sh config/zookeeper.properties
+./bin/kafka-server-start.sh config/server.properties
+
+# Run producer
+python producer/tweet_producer.py
+
+# Run streaming job
+spark-submit spark/stream_processing.py
+
+# Run batch job (optional)
+spark-submit spark/batch_processing.py
+
+# Analyze performance
+python analysis/performance_analysis.py
+
+⚙️ Requirements
+Python 3.8+
+Apache Kafka
+Apache Spark
+MySQL 8.x
+Python Libraries:
+kafka-python, mysql-connector-python
+matplotlib, seaborn, psutil, pandas
+
+Install them using:
+pip install -r requirements.txt
