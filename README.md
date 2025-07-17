@@ -1,4 +1,4 @@
-# Twitter_Streaming_analysisL
+# Twitter_Streaming_analysis
 
 A real-time big data analytics pipeline for ingesting, processing, and analyzing Twitter data using **Apache Kafka**, **Apache Spark (Structured Streaming & Batch)**, and **MySQL**.
 
