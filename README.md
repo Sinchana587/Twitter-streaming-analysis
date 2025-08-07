@@ -10,7 +10,7 @@ A real-time big data analytics pipeline for ingesting, processing, and analyzing
 - **Spark Streaming Jobs** to consume Kafka data and store analytics in MySQL.
 - **Batch Processing Module** to load and analyze historical tweet data.
 - **Performance Monitoring**: Measures throughput, processing time, and storage usage.
-- **Visual Analytics** using Matplotlib and Seaborn.
+- **Visual Analytics** using Matplotlib and Seaborn
 
 ---
 
